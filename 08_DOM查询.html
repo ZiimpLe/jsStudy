@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM查询</title>
+    <link rel="stylesheet" href="css/08_DOM查询.css">
+</head>
+<body>
+    <div id="total">
+        <div class="inner">
+            <p>你喜欢哪个城市？</p>
+            <ul id="city">
+                <li id="bj">北京</li>
+                <li>上海</li>
+                <li>东京</li>
+                <li>首尔</li>
+            </ul>
+            <br>
+            <br>
+            <p>你喜欢哪款单机游戏？</p>
+            <ul id="game">
+                <li>红色警戒</li>
+                <li>实况足球</li>
+                <li>极品飞车</li>
+                <li>魔兽世界</li>
+            </ul>
+            <br>
+            <br>
+            <p>你手机的操作系统是？</p>
+            <ul id="phone">
+                <li>IOS</li>
+                <li id="android">Android</li>
+                <li>Windows Phone</li>
+            </ul>
+            <br>
+            <br>
+        </div>
+
+        <div class="inner">
+            gender:
+            <input type="radio" name="gender" value="Male" /> Male
+            <input type="radio" name="gender" value="Female" /> Male
+            <br>
+            <br>
+            name:
+            <input type="text" name="name" id="username" value="ziimple">
+        </div>
+    </div>
+
+    <div class="button">
+        <div><button id="btn1">查找#bj节点</button></div>
+        <div><button id="btn2">查找所有li节点</button></div>
+        <div><button id="btn3">查找name=gender的所有节点</button></div>
+        <div><button id="btn4">查找city下所有li节点</button></div>
+        <div><button id="btn5">返回#city的所有子节点</button></div>
+        <div><button id="btn6">返回#phone的第一个子节点</button></div>
+        <div><button id="btn7">返回#bj的父节点</button></div>
+        <div><button id="btn8">返回#android的前一个兄弟节点</button></div>
+        <div><button id="btn9">读取#username的value值</button></div>
+        <div><button id="btn10">设置#username的value值</button></div>
+        <div><button id="btn11">读取#bj文本值</button></div>
+    </div>
+
+    <script>
+
+        //单击响应函数
+        function myOnclick(idStr, fun) {
+            var element = document.getElementById(idStr);
+            element.onclick = fun;
+        }
+
+        //查找#bj节点
+        myOnclick("btn1", function () {
+            alert(document.getElementById("bj").innerHTML);
+        });
+        //查找所有li节点
+        myOnclick("btn2", function () {
+            var lis = document.getElementsByTagName("li");
+            for(var i = 0; i <= lis.length; i++){
+                alert(lis[i].innerHTML);
+            }
+        });
+        //查找name=gender的所有节点
+        myOnclick("btn3", function () {
+            var genders = document.getElementsByName("gender");
+            for(var i = 0; i <= genders.length; i++){
+                alert(genders[i].value);
+            }
+        });
+        //查找city下所有li节点
+        myOnclick("btn4",function () {
+            var city = document.getElementById("city");
+            var lis = city.getElementsByTagName("li");
+            for(var i = 0; i < lis.length; i++){
+                alert(lis[i].innerHTML);
+            }
+        });
+        //返回#city的所有子节点
+        /*
+         * childNodes会获取包括文本节点在内的所有节点
+         * children会获取包括所有子元素
+         * 标签间的文本也会被当成子节点
+         * IE8及以下不会把恐怖当成子节点
+         */
+        myOnclick("btn5", function () {
+            var city = document.getElementById("city");
+            var childNodes = city.childNodes;
+            for(var i = 0; i < childNodes.length; i++){
+                alert(childNodes[i].innerHTML);
+            }
+        });
+        //返回#phone的第一个子节点
+        /*
+         * firstChild：返回第一个子节点
+         * firstElementChild：非农户第一个子元素（不支持IE8及以下）
+         */
+        myOnclick("btn6", function () {
+            var phone = document.getElementById("phone");
+            var fir = phone.firstChild;
+            alert(fir.innerHTML);
+        });
+        //返回#bj的父节点
+        myOnclick("btn7", function () {
+            var bj = document.getElementById("bj");
+            var bjPN = bj.parentNode;
+            alert(bjPN.innerHTML);
+        });
+        //返回#android的前一个兄弟节点
+        /*
+         * previousSibling：获取前一个兄弟节点
+         * previousElementSibling：获取前一个兄弟元素（IE8及以下不支持）
+         */
+        myOnclick("btn8", function () {
+            var android = document.getElementById("android");
+            var aps = android.previousSibling;
+            alert(aps);
+        });
+        //读取#username的value值
+        myOnclick("btn9", function () {
+            var username = document.getElementById("username");
+            alert(username.value);
+        });
+        //设置#username的value值
+        myOnclick("btn10", function () {
+            var username = document.getElementById("username");
+            username.value = "new ziimple";
+        });
+        //读取#bj文本值
+        myOnclick("btn11", function () {
+            var bj = document.getElementById("bj");
+            alert(bj.innerHTML);
+            alert(bj.innerText);
+            alert(bj.firstChild.nodeValue);
+        })
+
+    </script>
+</body>
+</html>

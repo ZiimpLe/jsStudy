@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event</title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <p id="p">这是一个段落</p>
+
+    <script>
+        var btn = document.getElementById("btn");
+        var p = document.getElementById("p");
+
+        //给btn绑定一个单击事件
+        btn.onclick = function () {
+            p.innerHTML = "你点了一下按钮。"
+        }
+    </script>
+</body>
+</html>
