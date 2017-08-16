@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding:10px;
+    font-size: 20px;
+}
+body{
+    width: 850px;
+    margin: 50px auto;
+}
+li{
+    float: left;
+    list-style: none;
+    border: solid 1px black;
+    background-color: #18ff8e;
+    margin: 5px;
+}
+#total{
+    border: solid 1px black;
+    float: left;
+    width: 400px;
+}
+#btnList{
+    width:400px;
+    border: solid 1px black;
+    float: right;
+}

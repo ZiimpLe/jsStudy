@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM增删练习</title>
+    <link rel="stylesheet" href="css/12_DOM增删练习.css">
+    <script src="js/12_DOM增删练习.js"></script>
+</head>
+<body>
+    <table id="employeeTable">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>Operate</th>
+        </tr>
+        <tr>
+            <td>Tom</td>
+            <td>tom@ziimple.xin</td>
+            <td>4000</td>
+            <td><a href="javascript:">delete</a></td>
+        </tr>
+        <tr>
+            <td>Jack</td>
+            <td>jack@ziimple.xin</td>
+            <td>5000</td>
+            <td><a href="javascript:">delete</a></td>
+        </tr>
+        <tr>
+            <td>Mary</td>
+            <td>mary@ziimple.xin</td>
+            <td>6000</td>
+            <td><a href="javascript:">delete</a></td>
+        </tr>
+    </table>
+
+    <div id="formDiv">
+        <h4>添加新员工</h4>
+        <table>
+            <tr>
+                <td class="work">Name：</td>
+                <td class="inp">
+                    <input type="text" name="empName" id="empName">
+                </td>
+            </tr>
+            <tr>
+                <td class="work">Email：</td>
+                <td class="inp">
+                    <input type="text" name="empEmail" id="empEmail">
+                </td>
+            </tr>
+            <tr>
+                <td class="work">Salary:</td>
+                <td class="inp">
+                    <input type="text" name="empSalary" id="empSalary">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button id="addEmpButton" value="abc">Submit</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
