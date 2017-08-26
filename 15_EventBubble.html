@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EventBubble</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: green;
+        }
+        span{
+            background: red;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            /*
+             *事件的冒泡（Bubble）：1、指事件的向上传导，当后代元素的事件触发后，祖先元素的相同事件会被触发；
+             *                      2、大部分时候冒泡是有用的，如不希望事件冒泡可以通过事件取消（cancleBubble = true）。
+             */
+            document.getElementById("span").onclick = function (event) {
+                enent = event || window.event;
+                event.cancelBubble = true;
+                alert("我是span的单击相应函数");
+            };
+            document.getElementById("box").onclick = function () {
+                alert("我是div的单击相应函数");
+            };
+            document.body.onclick= function () {
+                alert("我是body的单击相应函数");
+            };
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        <p>我是box</p>
+        <span id="span">我是一个span</span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件对象练习-Div跟随鼠标移动</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            height: 1500px;
+            width: 2500px;
+        }
+        #box1{
+            width: 500px;
+            height: 500px;
+            background-color: green;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            var box = document.getElementById("box");
+            var box1 = document.getElementById("box1");
+            document.onmousemove = function (event) {
+
+                var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+                var scrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
+
+                if(!event){
+                    event = window.event;
+                }
+                /*
+                    clientX和clientY是鼠标基于可见窗口坐标
+                    pageX和pageY是鼠标基于整个页面坐标(不支持IE8及以下）
+                 */
+                var left = event.clientX;
+                var top = event.clientY;
+
+                box.style.left = left + scrollLeft+ "px";
+                box.style.top = top + scrollTop + "px";
+            };
+            box1.onmousemove = function (event) {
+                event = event || window.event;
+                event.cancelBubble = true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box1">
+
+    </div>
+    <div id="box">
+
+    </div>
+</body>
+</html>

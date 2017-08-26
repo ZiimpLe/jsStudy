@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件对象</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #areaDiv, #showDiv{
+            margin: 20px;
+            width: 400px;
+            border: solid 2px black;
+        }
+        #areaDiv{
+            height: 100px;
+        }
+        #showDiv{
+            height: 50px;
+            line-height: inherit;
+        }
+    </style>
+    <script>
+        /*
+        * 任务：当鼠标在areaDiv内移动时，在showDiv显示坐标*/
+        window.onload = function () {
+            var areaDiv = document.getElementById("areaDiv");
+            var showDiv = document.getElementById("showDiv");
+
+            areaDiv.onmousemove = function (event) {
+
+                if(!event){
+                    event = window.event;
+                }
+                var x = event.clientX;
+                var y = event.clientY;
+
+                showDiv.innerHTML = "X=" + x + " Y=" + y;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="areaDiv"></div>
+    <div id="showDiv"></div>
+</body>
+</html>
