@@ -17,10 +17,9 @@
     <script>
         window.onload = function () {
             /*
-             * 事件的委派：1、指讲事件绑定给元素相同的祖先元素，当后代元素事件触发时会冒泡到祖先元素，从而
+             * 事件的委派：1、指将事件绑定给元素相同的祖先元素，当后代元素事件触发时会冒泡到祖先元素，从而
              *                通过祖先元素的事件响应函数处理事件；
-             *             2、事件委派利用了冒泡。
-             *
+             *            2、事件委派利用了冒泡。
              */
             var ul = document.getElementById("ul");
             document.getElementById("button").onclick = function () {

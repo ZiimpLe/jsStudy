@@ -10,7 +10,17 @@
              * 参数：1、事件字符串，不要on；
              *       2、响应函数；
              *       3、是否在捕获阶段触发事件，一般为false；
-             *       4、执行顺序和绑定顺序相反。
+             *       4、执行顺序和绑定顺序相反；
+             *       5、仅支持IE9及以上;
+             *       6、this为绑定事件的对象。
+             */
+            /*
+             * attachEvent(1,2)可以为同一元素的同一事件绑定多个不同的响应函数
+             * 参数：1、事件字符串，要on；
+             *       2、响应函数；
+             *       3、执行顺序和绑定顺序相同；
+             *       4、仅支持IE8及以下；
+             *       5、this为window。
              */
             var button = document.getElementById("button");
             button.onclick = function () {
@@ -19,12 +29,36 @@
 //            button.onclick = function () {
 //                alert("2");
 //            };
-            button.addEventListener("click",function () {
-                alert("2");
-            },false);
-            button.addEventListener("click",function () {
-                alert("3");
-            },false);
+//            button.addEventListener("click",function () {
+//                alert("2");
+//            },false);
+//            button.addEventListener("click",function () {
+//                alert("3");
+//            },false);
+
+            bind(button, "click", function () {
+                alert(2);
+            });
+            bind(button, "click", function () {
+                alert(3);
+            });
+            bind(button, "click", function () {
+                alert(4);
+            });
+            
+            function bind(obj, eventStr, callback) {
+
+                if(obj.addEventListener){
+                    //IE9及以上
+                    obj.addEventListener(eventStr, callback, false);
+                }else{
+                    //IE8及以下
+                    obj.attachEvent("on" + eventStr, function () {
+                        callback();
+                        callback.call(obj);
+                    });
+                }
+            }
         }
     </script>
 </head>
