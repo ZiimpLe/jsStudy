@@ -2,7 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="D:\workspace\WebstormProjects\jsStudy\CSSStudy" vcs="Git" />
-    <mapping directory="D:\workspace\WebstormProjects\jsStudy\jsStudy" vcs="Git" />
+    <mapping directory="D:\workspace\WebstormProjects\jsStudy\CSSStudy" vcs="" />
+    <mapping directory="D:\workspace\WebstormProjects\jsStudy\jsStudy" vcs="" />
   </component>
 </project>

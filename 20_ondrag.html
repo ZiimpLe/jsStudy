@@ -38,7 +38,7 @@
             box1.onmousedown = function (event) {
 
                 //设置box1捕获所有按键按下事件，解决IE8全选后拖拽失效问题
-                if(box1.setCapture()){
+                if(box1.setCapture){
                     box1.setCapture();
                 }
 
@@ -59,7 +59,7 @@
                     //取消document的onmouseup事件
                     document.onmouseup = null;
                     //释放box1捕获鼠标按下事件
-                    if(box1.releaseCapture()){
+                    if(box1.releaseCapture){
                         box1.releaseCapture();
                     }
                 };
