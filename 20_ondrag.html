@@ -36,6 +36,12 @@
             var box1 = document.getElementById("box1");
             //2、为box1绑定onmousedown事件
             box1.onmousedown = function (event) {
+
+                //设置box1捕获所有按键按下事件，解决IE8全选后拖拽失效问题
+                if(box1.setCapture()){
+                    box1.setCapture();
+                }
+
                 event = event || window.event;
                 var ol = event.clientX - box1.offsetLeft;
                 var ot = event.clientY - box1.offsetTop;
@@ -52,7 +58,14 @@
                     document.onmousemove = null;
                     //取消document的onmouseup事件
                     document.onmouseup = null;
-                }
+                    //释放box1捕获鼠标按下事件
+                    if(box1.releaseCapture()){
+                        box1.releaseCapture();
+                    }
+                };
+
+                //取消浏览器默认行为：解决拖拽搜索导致拖拽失效问题(不支持IE8及以下）
+                return false;
             };
         };
     </script>
